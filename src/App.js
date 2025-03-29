@@ -54,9 +54,33 @@ const App = () => {
   };
 
   const shareOnWhatsApp = () => {
-    const url = encodeURIComponent(imageURL);
-    window.open(`https://api.whatsapp.com/send?text=Check%20this%20image:%20${url}`, "_blank");
+    if (!imageURL) {
+      alert("Generate the image first!");
+      return;
+    }
+  
+    fetch(imageURL)
+      .then(res => res.blob()) // Convert to Blob
+      .then(blob => {
+        const file = new File([blob], "image.png", { type: "image/png" });
+        const fileURL = URL.createObjectURL(file);
+  
+        // Open WhatsApp with a predefined message
+        const whatsappURL = `https://wa.me/?text=Check this image!`;
+        window.open(whatsappURL, "_blank");
+  
+        // Create a hidden download link
+        const a = document.createElement("a");
+        a.href = fileURL;
+        a.download = "shared-image.png";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(fileURL);
+      })
+      .catch(err => console.error("Error converting image:", err));
   };
+  
 
   return (
     <div className="container">
