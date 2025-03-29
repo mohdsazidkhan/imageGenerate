@@ -109,7 +109,7 @@ const App = () => {
           <img src={imageURL} alt="Generated" className="responsive-img" />
           <br />
           <button onClick={downloadImage}>{lang === "ar" ? "تحميل" : "Download"}</button>
-          <button onClick={shareOnWhatsApp}>{lang === "ar" ? "مشاركة على الواتساب" : "Share on WhatsApp"}</button>
+          {/* <button onClick={shareOnWhatsApp}>{lang === "ar" ? "مشاركة على الواتساب" : "Share on WhatsApp"}</button> */}
         </>
       )}
     </div>
