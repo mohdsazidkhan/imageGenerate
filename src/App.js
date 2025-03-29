@@ -53,35 +53,6 @@ const App = () => {
     link.click();
   };
 
-  const shareOnWhatsApp = () => {
-    if (!imageURL) {
-      alert("Generate the image first!");
-      return;
-    }
-  
-    fetch(imageURL)
-      .then(res => res.blob()) // Convert to Blob
-      .then(blob => {
-        const file = new File([blob], "image.png", { type: "image/png" });
-        const fileURL = URL.createObjectURL(file);
-  
-        // Open WhatsApp with a predefined message
-        const whatsappURL = `https://wa.me/?text=Check this image!`;
-        window.open(whatsappURL, "_blank");
-  
-        // Create a hidden download link
-        const a = document.createElement("a");
-        a.href = fileURL;
-        a.download = "shared-image.png";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(fileURL);
-      })
-      .catch(err => console.error("Error converting image:", err));
-  };
-  
-
   return (
     <div className="container">
       <h2>{lang === "ar" ? "أدخل الاسم" : "Enter Name"}</h2>
@@ -109,7 +80,6 @@ const App = () => {
           <img src={imageURL} alt="Generated" className="responsive-img" />
           <br />
           <button onClick={downloadImage}>{lang === "ar" ? "تحميل" : "Download"}</button>
-          {/* <button onClick={shareOnWhatsApp}>{lang === "ar" ? "مشاركة على الواتساب" : "Share on WhatsApp"}</button> */}
         </>
       )}
     </div>
