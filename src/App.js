@@ -76,7 +76,7 @@ const App = () => {
       <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
       {imageURL && (
         <>
-          <h3>{lang === "ar" ? "المعاينة:" : "Preview:"}</h3>
+          <h3>{lang === "ar" ? "المعاينة" : "Preview"}</h3>
           <img src={imageURL} alt="Generated" className="responsive-img" />
           <br />
           <button onClick={downloadImage}>{lang === "ar" ? "تحميل" : "Download"}</button>
