@@ -7,7 +7,7 @@ const App = () => {
   const [imageURL, setImageURL] = useState(null);
   const [lang, setLang] = useState("ar");
   const [fontLoaded, setFontLoaded] = useState(false);
-  const blankImage = "/images/blank.png"; // Path to blank image
+  const blankImage = "/images/bakraeid.jpg"; // Path to blank image
 
   useEffect(() => {
     const font = new FontFace("Amiri", "url(/fonts/Helvetica_Neue_LT_Arabic_75_Bold.ttf)");
@@ -39,7 +39,7 @@ const App = () => {
       ctx.textAlign = "center";
 
       const textX = canvas.width / 2;
-      const textY = canvas.height - 350;
+      const textY = canvas.height - (canvas.height / 2) + 80;
       ctx.fillText(name, textX, textY);
 
       setImageURL(canvas.toDataURL("image/png"));
