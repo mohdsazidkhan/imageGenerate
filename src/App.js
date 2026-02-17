@@ -38,8 +38,8 @@ const App = () => {
       ctx.direction = lang === "ar" ? "rtl" : "ltr";
       ctx.textAlign = "center";
 
-      const textX = canvas.width / 3;
-      const textY = 555;
+      const textX = canvas.width / 2.8;
+      const textY = 540;
       ctx.fillText(name, textX, textY);
 
       setImageURL(canvas.toDataURL("image/png"));
