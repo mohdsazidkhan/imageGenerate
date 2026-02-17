@@ -33,7 +33,7 @@ const App = () => {
       canvas.height = img.height;
       ctx.drawImage(img, 0, 0, img.width, img.height);
 
-      ctx.font = "bold 70px 'Amiri', serif";
+      ctx.font = "bold 60px 'Amiri', serif";
       ctx.fillStyle = "white";
       ctx.direction = lang === "ar" ? "rtl" : "ltr";
       ctx.textAlign = "center";
