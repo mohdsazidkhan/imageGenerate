@@ -7,7 +7,7 @@ const App = () => {
   const [imageURL, setImageURL] = useState(null);
   const [lang, setLang] = useState("ar");
   const [fontLoaded, setFontLoaded] = useState(false);
-  const blankImage = "/images/ramadhan2026.jpeg"; // Path to blank image
+  const blankImage = "/images/eid-ul-fitr-2026.jpeg"; // Path to blank image
 
   useEffect(() => {
     const font = new FontFace("Amiri", "url(/fonts/HELVETICANEUELTARABIC-BOLD.TTF)");
@@ -38,8 +38,8 @@ const App = () => {
       ctx.direction = lang === "ar" ? "rtl" : "ltr";
       ctx.textAlign = "center";
 
-      const textX = canvas.width / 2.8;
-      const textY = 540;
+      const textX = canvas.width / 2;
+      const textY = canvas.height - 440;
       ctx.fillText(name, textX, textY);
 
       setImageURL(canvas.toDataURL("image/png"));
